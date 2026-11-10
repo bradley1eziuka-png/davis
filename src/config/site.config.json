@@ -1,0 +1,68 @@
+{
+  "business": {
+    "name": "Davis Building Services LLC",
+    "shortName": "Davis Building Services",
+    "phone": "(269) 352-6514",
+    "email": "carydavis1025@gmail.com",
+    "address": { "street": "", "city": "Kalamazoo", "state": "MI", "zip": "" },
+    "serviceAreas": [
+      "Kalamazoo",
+      "Portage",
+      "Schoolcraft",
+      "Battle Creek",
+      "Comstock",
+      "Three Rivers",
+      "Allegan",
+      "Grand Rapids",
+      "Holland",
+      "Grandville",
+      "Hudsonville",
+      "Grand Haven",
+      "South Haven",
+      "Benton Harbor",
+      "Lansing"
+    ],
+    "hours": [{ "days": "Monday – Sunday", "hours": "9:00 AM – 6:00 PM" }],
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "google": "",
+      "yelp": "",
+      "nextdoor": "",
+      "youtube": ""
+    }
+  },
+  "branding": {
+    "logo": {
+      "src": "/logo.webp",
+      "lightSrc": "/logo-light.webp",
+      "alt": "Davis Building Services LLC logo"
+    },
+    "favicon": "/favicon-32.png",
+    "colors": {},
+    "images": {}
+  },
+  "services": {
+    "enabled": ["cleaning", "pressureWashing", "maintenance", "painting", "exterior", "specialty"],
+    "overrides": {}
+  },
+  "content": {
+    "hero": {},
+    "about": {},
+    "finalCta": {},
+    "testimonials": []
+  },
+  "seo": {
+    "siteUrl": "",
+    "title": "Property Maintenance & Cleaning Kalamazoo, MI | Davis Building Services",
+    "description": "Davis Building Services LLC provides commercial and residential cleaning, power washing, property maintenance, and improvements in Kalamazoo, MI. Request an estimate.",
+    "ogImage": "/images/og-image.jpg",
+    "locale": "en_US"
+  },
+  "form": {
+    "provider": "demo",
+    "formspreeId": "",
+    "webhookUrl": "",
+    "showDemoNotice": false
+  }
+}

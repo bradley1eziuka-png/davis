@@ -1,0 +1,169 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system - Davis Building Services LLC.
+ *
+ * Palette (from the supplied logo):
+ *   Charcoal         #303030  -> --primary / --foreground (structural)
+ *   Dark charcoal    #202020  -> --navy (deep sections, footer)
+ *   Warm white       #FAF9F6  -> --background
+ *   Light warm gray  #F1F0EB  -> --secondary
+ *   Muted gold       #D4C27F  -> --accent (CTA fills, highlights on dark)
+ *   Rich gold        #B9A35D  -> --gold-rich (rings, rules)
+ *   Gold ink         #7D6A2E  -> --gold-ink (gold text on light; AA contrast)
+ *   Body text        #414141  -> --muted-foreground
+ *
+ * (Token names "navy"/"gold" are kept from the template so components work
+ * unchanged; --navy is now dark charcoal.)
+ *
+ * Typography: Manrope (display + body), loaded via <link> in __root.tsx.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
+  --color-gold-rich: var(--gold-rich);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: #faf9f6;
+  --foreground: #303030;
+
+  --card: #ffffff;
+  --card-foreground: #303030;
+  --popover: #ffffff;
+  --popover-foreground: #303030;
+
+  --primary: #303030;
+  --primary-foreground: #faf9f6;
+
+  --secondary: #f1f0eb;
+  --secondary-foreground: #303030;
+
+  --muted: #f1f0eb;
+  --muted-foreground: #414141;
+
+  --accent: #d4c27f;
+  --accent-foreground: #202020;
+
+  --destructive: #b42318;
+  --destructive-foreground: #faf9f6;
+
+  --border: #e3e1d9;
+  --input: #e3e1d9;
+  --ring: #b9a35d;
+
+  --navy: #202020;
+  --navy-soft: #3a3a3a;
+  --gold: #d4c27f;
+  --gold-soft: #ece3bd;
+  --gold-rich: #b9a35d;
+  --gold-ink: #7d6a2e;
+
+  --chart-1: #d4c27f;
+  --chart-2: #303030;
+  --chart-3: #b9a35d;
+  --chart-4: #414141;
+  --chart-5: #8a7a45;
+
+  --sidebar: #faf9f6;
+  --sidebar-foreground: #303030;
+  --sidebar-primary: #303030;
+  --sidebar-primary-foreground: #faf9f6;
+  --sidebar-accent: #f1f0eb;
+  --sidebar-accent-foreground: #303030;
+  --sidebar-border: #e3e1d9;
+  --sidebar-ring: #b9a35d;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Smooth in-page anchor scrolling for the sticky header offset. */
+html {
+  scroll-behavior: smooth;
+}
+
+@utility section-pad {
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+/* Respect reduced-motion preferences: no smooth scroll, no transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
